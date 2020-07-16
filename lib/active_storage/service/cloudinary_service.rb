@@ -41,9 +41,8 @@ module ActiveStorage
           Cloudinary::Uploader.upload_large(
             io,
             public_id: public_id_internal(key),
-            quality: 'auto',
-            async: true,
-            timeout: 1000000,
+            eager: [{quality: 'auto'}],
+            eager_async: true,
             resource_type: resource_type(io, key),
             context: {active_storage_key: key, checksum: checksum},
             extra_headers: extra_headers,
