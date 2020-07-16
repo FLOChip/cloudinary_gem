@@ -41,6 +41,9 @@ module ActiveStorage
           Cloudinary::Uploader.upload_large(
             io,
             public_id: public_id_internal(key),
+            timestamp: Time.now.to_i,
+            eager: ::Video.transformation_eager,
+            eager_async: true,
             resource_type: resource_type(io, key),
             context: {active_storage_key: key, checksum: checksum},
             extra_headers: extra_headers,
