@@ -42,6 +42,8 @@ module ActiveStorage
             io,
             public_id: public_id_internal(key),
             quality: 'auto',
+            width: 100,
+            height: 300,
             async: true,
             timeout: 1000000,
             resource_type: resource_type(io, key),
